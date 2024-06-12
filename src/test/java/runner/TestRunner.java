@@ -8,5 +8,11 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(features="src/test/resources/feature",glue="stepDefination",monochrome=true,
 plugin= {"pretty","com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:","rerun:target/failedrerun.txt"})
 public class TestRunner extends AbstractTestNGCucumberTests{
+	
+	@Override
+	@DataProvider(parallel=true)
+	public Object[][] scenarios(){
+		return super.scenarios();
+	}
 
 }
